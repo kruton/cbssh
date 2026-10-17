@@ -1,6 +1,6 @@
 /*
  * ConnectBot SSH Library
- * Copyright 2025 Kenny Root
+ * Copyright 2025-2026 Kenny Root
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 package org.connectbot.sshlib.transport
 
 import org.connectbot.sshlib.SshException
+import java.net.InetSocketAddress
 
 /**
  * Transport abstraction for SSH connections.
@@ -56,6 +57,10 @@ interface Transport {
      * Check if the transport is still connected.
      */
     val isConnected: Boolean
+
+    /** Actual connected network peer, or null for transports without a TCP endpoint. */
+    val remoteAddress: InetSocketAddress?
+        get() = null
 }
 
 /**
