@@ -17,8 +17,6 @@
 
 package org.connectbot.sshlib
 
-import java.security.KeyPair
-
 /**
  * A host key specification used in destination constraints.
  *
@@ -99,7 +97,7 @@ interface AgentProvider {
     suspend fun signData(context: AgentSigningContext): AgentResult<ByteArray?>
 
     /** Optional agent management operations. Providers deny mutations by default. */
-    suspend fun addIdentity(keyPair: KeyPair, comment: String, confirmUse: Boolean, lifetimeSeconds: Long?): AgentResult<Boolean> = AgentResult.Success(false)
+    suspend fun addIdentity(keyPair: java.security.KeyPair, comment: String, confirmUse: Boolean, lifetimeSeconds: Long?): AgentResult<Boolean> = AgentResult.Success(false)
 
     suspend fun removeIdentity(publicKeyBlob: ByteArray): AgentResult<Boolean> = AgentResult.Success(false)
 

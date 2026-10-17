@@ -418,7 +418,7 @@ class SshClient private constructor(
         get() = connection?.connectionInfo
 
     /** Actual connected network peer; null for jump-host channels and disconnected clients. */
-    val remoteAddress: InetSocketAddress?
+    val remoteAddress: java.net.InetSocketAddress?
         get() = transport?.remoteAddress
 
     /**

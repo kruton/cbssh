@@ -18,7 +18,6 @@
 package org.connectbot.sshlib.transport
 
 import org.connectbot.sshlib.SshException
-import java.net.InetSocketAddress
 
 /**
  * Transport abstraction for SSH connections.
@@ -59,7 +58,7 @@ interface Transport {
     val isConnected: Boolean
 
     /** Actual connected network peer, or null for transports without a TCP endpoint. */
-    val remoteAddress: InetSocketAddress?
+    val remoteAddress: java.net.InetSocketAddress?
         get() = null
 }
 

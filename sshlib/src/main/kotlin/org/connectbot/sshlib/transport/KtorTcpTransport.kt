@@ -66,7 +66,7 @@ class KtorTcpTransport internal constructor(
     private var socket: TransportSocket? = null
 
     @Volatile
-    override var remoteAddress: InetSocketAddress? = null
+    override var remoteAddress: java.net.InetSocketAddress? = null
         private set
     private var readChannel: ByteReadChannel? = null
     private var writeChannel: ByteWriteChannel? = null
@@ -79,7 +79,7 @@ class KtorTcpTransport internal constructor(
      * Local TCP address assigned to the connected socket, or `null` before
      * connection, after close, or when the injected socket does not expose it.
      */
-    fun getLocalAddress(): InetSocketAddress? = (socket as? LocalAddressProvider)?.localAddress
+    fun getLocalAddress(): java.net.InetSocketAddress? = (socket as? LocalAddressProvider)?.localAddress
 
     /**
      * Connect to the remote host.
